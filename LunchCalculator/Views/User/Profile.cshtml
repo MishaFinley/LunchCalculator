@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+<div class="form-cont">
+    <form method="post" class="act-form">
+        <div class="inp-cont-nbg">
+            <!--//asp-for="Password"-->
+            <div class="inp-label-sized">
+                <label class="inp-label">Old Password:</label>
+            </div>
+            <input type="password" name="old" class="inp-lg" />
+            <!--//asp-validation-for="Password"-->
+            <span></span>
+        </div>
+        <div class="inp-cont-nbg">
+            <!--//asp-for="Password"-->
+            <div class="inp-label-sized">
+                <label class="inp-label">New Password:</label>
+            </div>
+            <input type="password" name="password" class="inp-lg" />
+            <!--//asp-validation-for="Password"-->
+            <span></span>
+        </div>
+
+        <div class="inp-cont-nbg">
+            <div class="inp-label-sized">
+                <label class="inp-label">Confirm Password:</label>
+            </div>
+            <input type="password" name="passwordcon" class="inp-lg" />
+            <span></span>
+        </div>
+        <div class="inp-cont-nbg">
+            <div class="inp-label-sized">
+                <label class="inp-label">Add Restriction:</label>
+            </div>
+            <input type="text" name="restriction" class="inp-lg" />
+            <span></span>
+        </div>
+        <div class="inp-cont-nbg">
+            <div class="inp-label-sized">
+                <label class="inp-label">Add Requirement:</label>
+            </div>
+            <input type="text" name="requirement" class="inp-lg" />
+            <span></span>
+        </div>
+        <div class="flex-end">
+            <input class="button2" type="submit" value="Change" />
+        </div>
+    </form>
+</div>

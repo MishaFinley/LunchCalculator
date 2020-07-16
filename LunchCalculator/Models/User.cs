@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using MongoDB.Bson;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ namespace LunchCalculator.Models
 {
     public class User
     {
+        public ObjectId _id { get; set; }
         public string username { get; set; }
         public byte[] password { get; set; }
         //Requirements = they will ONLY eat food that description has this tag
