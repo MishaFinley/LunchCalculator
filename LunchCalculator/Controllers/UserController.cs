@@ -39,6 +39,29 @@ namespace LunchCalculator.Controllers
             return View();
         }
         [HttpPost]
+        public IActionResult Restriction(string restriction)
+        {
+            User check = UserDatabaseInterface.readUser(HttpContext.Session.GetString("username"));
+            if (!(check is null))
+            {
+                check.dietaryRestrictions.Remove(restriction);
+                UserDatabaseInterface.updateUser(check);
+            }
+            return RedirectToAction("Profile");
+        }
+        [HttpPost]
+        public IActionResult Requirement(string requirement)
+        {
+            User check = UserDatabaseInterface.readUser(HttpContext.Session.GetString("username"));
+            if (!(check is null))
+            {
+                check.dietaryRequirements.Remove(requirement);
+                UserDatabaseInterface.updateUser(check);
+            }
+            return RedirectToAction("Profile");
+        }
+
+        [HttpPost]
         public IActionResult CreateAccount(string username, string password, string passwordcon)
         {
             User check = UserDatabaseInterface.readUser(username);
