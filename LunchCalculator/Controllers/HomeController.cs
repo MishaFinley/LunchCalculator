@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LunchCalculator.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using LunchCalculator.Models;
+using System.Diagnostics;
 
 namespace LunchCalculator.Controllers
 {
@@ -20,6 +17,23 @@ namespace LunchCalculator.Controllers
 
         public IActionResult Index()
         {
+            User user = UserDatabaseInterface.readUser(HttpContext.Session.GetString("username"));
+            if (!(user is null))
+            {
+                ViewBag.profile = user;
+            }
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Index(string zip)
+        {
+            User user = UserDatabaseInterface.readUser(HttpContext.Session.GetString("username"));
+            if (!(user is null))
+            {
+                ViewBag.profile = user;
+            }
+            //TODO find resturants from zip and restrictions
+            //TODO setup response for resurants in ViewBag
             return View();
         }
 
