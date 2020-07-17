@@ -9,6 +9,7 @@ namespace LunchCalculator.Models
     {
         public ObjectId _id { get; set; }
         public string username { get; set; }
+        public string zip { get; set; }
         public byte[] password { get; set; }
         //Requirements = they will ONLY eat food that description has this tag
         public List<string> dietaryRequirements { get; set; }
