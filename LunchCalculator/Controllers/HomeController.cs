@@ -34,6 +34,7 @@ namespace LunchCalculator.Controllers
             }
             //TODO find resturants from zip and restrictions
             //TODO setup response for resurants in ViewBag
+            ViewBag.resturants = null;
             return View();
         }
 
