@@ -1,8 +1,19 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@{ ViewData["Title"] = "Home Page"; }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">LUNCH?</h1>
+</div>
+<div class="form-cont">
+    <form method="post" class="act-form">
+        <div class="inp-cont-nbg">
+            <div class="inp-label-sized">
+                <label class="inp-label">Zip:</label>
+            </div>
+            <input type="text" name="zip" class="inp-lg" @{if (!(ViewBag.profile is null)) { <text> value="@ViewBag.profile.zip" </text> } } />
+            <span></span>
+        </div>
+        <div class="flex-end">
+            <input class="button2" type="submit" value="Find lunch near me" />
+        </div>
+    </form>
 </div>
