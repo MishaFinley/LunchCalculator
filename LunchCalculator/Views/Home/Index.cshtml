@@ -9,7 +9,14 @@
             <div class="inp-label-sized">
                 <label class="inp-label">Zip:</label>
             </div>
-            <input type="text" name="zip" class="inp-lg" @{if (!(ViewBag.profile is null)) { <text> value="@ViewBag.profile.zip" </text> } } />
+            <input type="text" name="zip" class="inp-lg" @{if (!(ViewBag.profile is null)) { <text> value="@ViewBag.profile.zip" </text>  } } />
+            <span></span>
+        </div>
+        <div class="inp-cont-nbg">
+            <div class="inp-label-sized">
+                <label class="inp-label">Search:</label>
+            </div>
+            <input type="text" name="searchtext" class="inp-lg" } />
             <span></span>
         </div>
         <div class="flex-end">

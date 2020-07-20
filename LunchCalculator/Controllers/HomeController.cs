@@ -25,7 +25,7 @@ namespace LunchCalculator.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(string zip)
+        public IActionResult Index(string zip, string searchtext)
         {
             User user = UserDatabaseInterface.readUser(HttpContext.Session.GetString("username"));
             if (!(user is null))
