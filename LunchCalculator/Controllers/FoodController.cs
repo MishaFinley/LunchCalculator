@@ -16,8 +16,10 @@ namespace LunchCalculator.Controllers
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
-                SearchResult json = SearchResult.FromJSON(response.Content);
-                return View(json);
+                string json = response.Content;
+                SearchResult result = SearchResult.FromJSON(response.Content);
+                ViewBag.result = result;
+                return View();
             }
             else
             {
