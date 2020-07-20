@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+<div class="text-center">
+    <h1 class="display-4">LUNCH?</h1>
+</div>
+<div>
+    <div class="resturantName">@ViewBag.resturant.name</div>
+    <div class="resturantAlias">@ViewBag.resturant.alias</div>
+    <div class="isClosed" @{if (ViewBag.resturant.is_closed) { <text> hidden</text> } }>CLOSED</div>
+    <div class="website"><a href="@ViewBag.resturant.URL">Website</a></div>
+    <div class="phone">@ViewBag.resturant.display_phone</div>
+    <div class="rating">
+        <div class="ratingNumber">@ViewBag.resturant.rating/5 stars</div>
+        <div class="reviewCount">with @ViewBag.resturant.review_count reviews</div>
+    </div>
+    <div class="address">
+        <div class="distance">@ViewBag.resturant.distance miles?</div>
+    </div>
+</div>

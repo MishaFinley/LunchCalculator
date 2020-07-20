@@ -24,3 +24,11 @@
         </div>
     </form>
 </div>
+<div class="resturant_list">
+    @{ foreach (var resturant in ViewBag.resturants)
+        {
+<div class="resturant_detail">
+    <span class="resturant_name">@resturant.name</span>
+    @Html.ActionLink("Details", "ResturantDetails", "FoodController", new { id = resturant.id })
+</div> } }
+</div>

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LunchCalculator.Models;
+﻿using LunchCalculator.Models;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
+using System;
 
 namespace LunchCalculator.Controllers
 {
     public class FoodController : Controller
-    {  
+    {
         public IActionResult SearchFood()
         {
             RestClient client = new RestClient("https://api.yelp.com/v3businesses/search?term=delis");
@@ -26,6 +23,11 @@ namespace LunchCalculator.Controllers
             {
                 Console.WriteLine("ERROR", (int)response.StatusCode, response.ErrorMessage);
             }
+            return View();
+        }
+        public IActionResult ResturantDetails(string id)
+        {
+            ViewBag.resturant = new Resturant();
             return View();
         }
     }
