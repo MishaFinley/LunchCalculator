@@ -22,6 +22,7 @@ namespace LunchCalculator.Controllers
             {
                 ViewBag.profile = user;
             }
+            ViewBag.resturants = new Resturant[0];
             return View();
         }
         [HttpPost]
@@ -34,7 +35,7 @@ namespace LunchCalculator.Controllers
             }
             //TODO find resturants from zip and restrictions
             //TODO setup response for resurants in ViewBag
-            ViewBag.resturants = null;
+            ViewBag.resturants = new Resturant[0];
             return View();
         }
 
