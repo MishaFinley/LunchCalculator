@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Nancy.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LunchCalculator.Models
 {
+    [Serializable]
     public class Resturant
     {
         public string id { get; set; }
@@ -23,8 +23,16 @@ namespace LunchCalculator.Models
         public string phone { get; set; }
         public string display_phone { get; set; }
         public double distance { get; set; }
+        public override string ToString()
+        {
+            return new JavaScriptSerializer().Serialize(this);
+        }
+        public static Resturant FromString(string json)
+        {
+            return new JavaScriptSerializer().Deserialize<Resturant>(json);
+        }
     }
-
+    [Serializable]
     public class Category
     {
         public string alias { get; set; }

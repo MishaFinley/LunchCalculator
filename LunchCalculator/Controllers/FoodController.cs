@@ -28,6 +28,7 @@ namespace LunchCalculator.Controllers
         public IActionResult ResturantDetails(string id)
         {
             ViewBag.resturant = new Resturant();
+            //get resturant by id from yelp
             return View();
         }
     }

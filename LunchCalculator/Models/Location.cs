@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LunchCalculator.Models
 {
+    [Serializable]
     public class Location
     {
         public string address1 { get; set; }
