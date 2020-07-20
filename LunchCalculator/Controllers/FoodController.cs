@@ -16,7 +16,7 @@ namespace LunchCalculator.Controllers
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
-                SearchResult json = Newtonsoft.Json.JsonConvert.DeserializeObject<SearchResult>(response.Content);
+                SearchResult json = SearchResult.FromJSON(response.Content);
                 return View(json);
             }
             else
