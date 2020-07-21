@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace LunchCalculator.Controllers
@@ -33,9 +34,11 @@ namespace LunchCalculator.Controllers
             {
                 ViewBag.profile = user;
             }
-            //TODO find resturants from zip and restrictions
-            //TODO setup response for resurants in ViewBag
-            ViewBag.resturants = new Resturant[0];
+            else
+            {
+                user = new User { dietaryRequirements = new List<string>(), dietaryRestrictions = new List<string>() };
+            }
+            ViewBag.resturants = FoodController.SearchFood(zip, searchtext, user.dietaryRestrictions.ToArray(), user.dietaryRequirements.ToArray()).ToArray();
             return View();
         }
 
