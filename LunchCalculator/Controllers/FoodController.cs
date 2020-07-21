@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 using System;
+using System.Collections.Generic;
 
 namespace LunchCalculator.Controllers
 {
@@ -14,17 +15,20 @@ namespace LunchCalculator.Controllers
             request.AddHeader("Authorization", "Bearer v1AI_S2LzYgDRy37YwJL1idcwfOCHr9DDGv58kvOUUEIxdJDU-QInbxpBzmXtYiihq5ZZa3tlWhOQzMHRjrRd-pZzw32ChpU44ZoEEdyP_ty6PYlJOQsUZ2MjWYQX3Yx");
             request.AddParameter("location", "SaltLakeCity");
             IRestResponse response = client.Execute(request);
+            SearchResult result;
             if (response.IsSuccessful)
             {
                 string json = response.Content;
-                SearchResult result = SearchResult.FromJSON(response.Content);
-                ViewBag.result = result;
+                result = SearchResult.FromJSON(response.Content);
                 return View();
             }
             else
             {
+                result = new SearchResult { businesses = new List<Resturant>() };
+                result.businesses.Add(new Resturant { name = "response failure" });
                 Console.WriteLine("ERROR", (int)response.StatusCode, response.ErrorMessage);
             }
+            ViewBag.result = result;
             return View();
         }
         public IActionResult ResturantDetails(string id)
