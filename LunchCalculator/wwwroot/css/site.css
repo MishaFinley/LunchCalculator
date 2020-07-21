@@ -100,6 +100,40 @@ nav {
     margin: 40px;
 }
 
+.det {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 5px;
+    border: 2px solid black;
+    background-color: #8782A0;
+    color: black;
+}
+
+.det {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    background-color: #8782A0;
+    color: black;
+}
+
+.details-cont {
+    margin: 20px;
+    padding: 20px;
+    background-color: #37232D;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .diet-reqs {
     display: flex;
     flex-direction: column;
