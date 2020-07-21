@@ -65,7 +65,7 @@ namespace LunchCalculator.Controllers
             if (response.IsSuccessful)
             {
                 string json = response.Content;
-                var result = Resturant.FromString(response.Content);
+                var result = Models.ResturauntDetails.FromString(response.Content);
                 ViewBag.resturant = result;
             }
             return View();
