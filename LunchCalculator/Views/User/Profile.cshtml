@@ -9,16 +9,16 @@
         <div class="info-cont">
             <label>Username: &ensp;</label>
             <div id="user">@ViewBag.profile.username</div>
-            <label>Dietary Restrictions: </label>
-            @{ foreach (var restriction in ViewBag.profile.dietaryRestrictions)
-                {
-    <div>@restriction</div>
-                    <form method="post" class="act-form" action="/User/Restriction">
-                        <input type="hidden" name="restriction" value="@restriction" />
-                        <div>
-                            <input type="submit" value="Remove" />
-                        </div>
-                    </form> } }
+            @*<label>Dietary Restrictions: </label>
+                        @{ foreach (var restriction in ViewBag.profile.dietaryRestrictions)
+                            {
+                <div>@restriction</div>
+                                <form method="post" class="act-form" action="/User/Restriction">
+                                    <input type="hidden" name="restriction" value="@restriction" />
+                                    <div>
+                                        <input type="submit" value="Remove" />
+                                    </div>
+                                </form> } }*@
             <label>Dietary Requirements: </label>
             @{ foreach (var requirement in ViewBag.profile.dietaryRequirements)
                 {
@@ -51,14 +51,14 @@
                     <input type="password" name="passwordcon" class="inp-lg" />
                     <span></span>
                 </div>
-                <div class="subtitle2">Add Dietary Restrictions and Requirements Below</div>
-                <div class="inp-cont-nbg">
-                    <div class="inp-label-sized">
-                        <label class="inp-label">Add Restriction:</label>
-                    </div>
-                    <input type="text" name="restriction" class="inp-lg" />
-                    <span></span>
-                </div>
+                <div class="subtitle2">Add Dietary Requirements Below</div>
+                @*<div class="inp-cont-nbg">
+                        <div class="inp-label-sized">
+                            <label class="inp-label">Add Restriction:</label>
+                        </div>
+                        <input type="text" name="restriction" class="inp-lg" />
+                        <span></span>
+                    </div>*@
                 <div class="inp-cont-nbg">
                     <div class="inp-label-sized">
                         <label class="inp-label">Add Requirement:</label>
