@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LunchCalculator.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using LunchCalculator.Models;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace LunchCalculator.Controllers
 {
@@ -20,6 +18,27 @@ namespace LunchCalculator.Controllers
 
         public IActionResult Index()
         {
+            User user = UserDatabaseInterface.readUser(HttpContext.Session.GetString("username"));
+            if (!(user is null))
+            {
+                ViewBag.profile = user;
+            }
+            ViewBag.resturants = new Resturant[0];
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Index(string zip, string searchtext)
+        {
+            User user = UserDatabaseInterface.readUser(HttpContext.Session.GetString("username"));
+            if (!(user is null))
+            {
+                ViewBag.profile = user;
+            }
+            else
+            {
+                user = new User { dietaryRequirements = new List<string>(), dietaryRestrictions = new List<string>() };
+            }
+            ViewBag.resturants = FoodController.SearchFood(zip, searchtext, user.dietaryRestrictions.ToArray(), user.dietaryRequirements.ToArray()).ToArray();
             return View();
         }
 

@@ -62,12 +62,12 @@ namespace LunchCalculator.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAccount(string username, string password, string passwordcon)
+        public IActionResult CreateAccount(string username, string password, string passwordcon, string zip)
         {
             User check = UserDatabaseInterface.readUser(username);
             if ((check is null) && password.Equals(passwordcon))
             {
-                UserDatabaseInterface.createUser(new Models.User { username = username, password = Models.User.hashPassword(password, username) });
+                UserDatabaseInterface.createUser(new Models.User { username = username, password = Models.User.hashPassword(password, username), zip = zip });
                 HttpContext.Session.SetString("username", username);
                 return RedirectToAction("Index", "Home");
             }
@@ -89,7 +89,7 @@ namespace LunchCalculator.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Profile(string old, string password, string passwordcon, string restriction, string requirement)
+        public IActionResult Profile(string old, string password, string passwordcon, string restriction, string requirement, string zip)
         {
             string username = HttpContext.Session.GetString("username");
             User check = UserDatabaseInterface.readUser(username);
@@ -99,6 +99,8 @@ namespace LunchCalculator.Controllers
                     check.dietaryRequirements.Add(requirement);
                 if (!(restriction is null) && !restriction.Trim().Equals(""))
                     check.dietaryRestrictions.Add(restriction);
+                if (!(zip is null) && !zip.Trim().Equals(""))
+                    check.zip = zip;
                 if (!(password is null) && !password.Equals("") && password.Equals(passwordcon))
                 {
                     check.password = Models.User.hashPassword(password, username);
