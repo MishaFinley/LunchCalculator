@@ -11,7 +11,7 @@ namespace LunchCalculator.Controllers
         public IActionResult SearchFood()
         {
             RestClient client = new RestClient("https://api.yelp.com/v3businesses/search?term=delis");
-            RestRequest request = new RestRequest(Method.POST); ;
+            RestRequest request = new RestRequest(Method.GET); ;
             request.AddHeader("Authorization", "Bearer v1AI_S2LzYgDRy37YwJL1idcwfOCHr9DDGv58kvOUUEIxdJDU-QInbxpBzmXtYiihq5ZZa3tlWhOQzMHRjrRd-pZzw32ChpU44ZoEEdyP_ty6PYlJOQsUZ2MjWYQX3Yx");
             request.AddParameter("location", "SaltLakeCity");
             IRestResponse response = client.Execute(request);
@@ -20,7 +20,6 @@ namespace LunchCalculator.Controllers
             {
                 string json = response.Content;
                 result = SearchResult.FromJSON(response.Content);
-                return View();
             }
             else
             {
