@@ -1,71 +1,276 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿
+/****************************
+    Default Tag Adjustments
+****************************/
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    text-decoration: none;
+    color: #FFE6DC;
+    padding: 10px;
+    margin: 10px;
+    transition: ease-out color 0.4s;
+    transition: ease-out background-color 0.4s;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+a:hover {
+    color: white;
+    background-color: black;
+    text-align: center;
+    transition: ease-out color 0.4s;
+    transition: ease-out background-color 0.4s;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+a:visited {
+    background-color: #FFE6DC;
+    transition: ease-out color 0.4s;
+    transition: ease-out background-color 0.4s;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+a:visited:hover {
+    background-color: black;
+    color: white;
+    transition: ease-out color 0.4s;
+    transition: ease-out background-color 0.4s;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    background-color: #503C4B;
+    color: #FFE6DC;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+footer {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #37232D;
+}
+
+nav {
+    background-color: #37232D;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+/****************
+    Class Tags
+****************/
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button2 {
+    margin: 10px;
+    padding: 5px;
+    font-size: 1em;
+    text-align: center;
+    background-color: #FFE6DC;
+    color: #37232D;
+    transition: ease-out color 0.4s;
+    transition: ease-out background-color 0.4s;
+}
+
+.button2:hover {
+    background-color: #B9465F;
+    color: black;
+    transition: ease-out color 0.4s;
+    transition: ease-out background-color 0.4s;
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 40px;
+}
+
+.det {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 5px;
+    border: 2px solid black;
+    background-color: #8782A0;
+    color: black;
+}
+
+.det {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    background-color: #8782A0;
+    color: black;
+}
+
+.details-cont {
+    margin: 20px;
+    padding: 20px;
+    background-color: #37232D;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.diet-reqs {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.form-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.form-cont-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin: 20px;
+}
+
+.inp-cont-nbg {
+    margin: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp-cont-border {
+    margin: 20px;
+    padding: 10px;
+    background-color: #37232D;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp-label {
+    text-align: center;
+    margin: 5px;
+}
+
+.inp-label-sized {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.inp-lg {
+    width: 200px;
+}
+
+.menu-item {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.note {
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: .7em;
+}
+
+.resturant-detail {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #8782A0;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.resturant-link {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.resturant-link a {
+    display: flex;
+    justify-self: flex-end;
+    color: black;
+}
+
+.resturant-link a:hover {
+    color: white;
+    background-color: black;
+}
+
+.resturant-list {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.resturant-name {
+    display: flex;
+    width: 300px;
+    justify-self: flex-start;
+}
+
+.req-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.req-name {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 10px;
+}
+
+.title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3em;
+    padding: 6px;
+    margin: 12px;
+}
+
+.username {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.v-divider {
+    margin: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
 }
