@@ -25,7 +25,13 @@
                 <input class="button2" type="submit" value="Find Lunch Near Me!" />
             </div>
 
-            <div class="note">Note: Sign in or Sign up in order to save your zip code and add restrictions/requests!</div>
+            @{ 
+                if(ViewBag.profile is null)
+                {
+                    <div class="note">Note: Sign in or Sign up in order to save your zip code and add restrictions/requests!</div>
+                }
+            }
+
         </form>
     </div>
     <div class="resturant-list">
