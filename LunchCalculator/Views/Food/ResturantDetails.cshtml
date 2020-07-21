@@ -7,8 +7,7 @@
 </div>
 <div>
     <div class="resturantName">@ViewBag.resturant.name</div>
-    <div class="resturantAlias">@ViewBag.resturant.alias</div>
-    <div class="isClosed" @{if (ViewBag.resturant.is_closed) { <text> hidden</text> } }>CLOSED</div>
+    <div class="isClosed" @{if (!ViewBag.resturant.is_closed) { <text> hidden</text> } }>CLOSED</div>
     <div class="website"><a href="@ViewBag.resturant.url">Website</a></div>
     <div class="phone">@ViewBag.resturant.display_phone</div>
     <div class="rating">
