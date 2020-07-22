@@ -35,14 +35,17 @@ namespace LunchCalculator.Controllers
             RestClient client = new RestClient("https://api.yelp.com/v3/businesses/search?");
             RestRequest request = new RestRequest(Method.GET); ;
             request.AddHeader("Authorization", "Bearer v1AI_S2LzYgDRy37YwJL1idcwfOCHr9DDGv58kvOUUEIxdJDU-QInbxpBzmXtYiihq5ZZa3tlWhOQzMHRjrRd-pZzw32ChpU44ZoEEdyP_ty6PYlJOQsUZ2MjWYQX3Yx");
-            if(searchtext == null || searchtext.Trim() == "")
+            string terms = "resturant";
+            if(searchtext != null && searchtext.Trim() != "")
             {
-                request.AddParameter("term", "resturant");
+                terms += "," + searchtext;
             }
-            else
+            if (requirements != null)
             {
-                
-                request.AddParameter("term", "resturant,"+searchtext);
+                foreach(string s in requirements)
+                {
+                    terms += s;
+                }
             }
             request.AddParameter("location", zip);
             IRestResponse response = client.Execute(request);

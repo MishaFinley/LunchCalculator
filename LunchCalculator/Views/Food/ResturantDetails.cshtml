@@ -15,6 +15,20 @@
         <div class="reviewCount">with @ViewBag.resturant.review_count reviews</div>
     </div>
     <div class="address">
-        <div class="distance">@ViewBag.resturant.distance miles?</div>
+        <div class="display-address">
+            @foreach (String s in ViewBag.resturant.location.display_address)
+            {
+                @s <br>
+            }
+        </div>
+    </div>
+    <div class="tags">
+            @foreach (Category c in ViewBag.resturant.categories)
+            {
+                <div class="tag">
+                    @c.title
+                    <span></span>
+                </div>
+            }
     </div>
 </div>
