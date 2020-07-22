@@ -5,7 +5,7 @@
 <div class="text-center">
     <h1 class="display-4">LUNCH?</h1>
 </div>
-<div>
+<div class="det">
     <div class="resturantName">@ViewBag.resturant.name</div>
     <div class="isClosed" @{if (!ViewBag.resturant.is_closed) { <text> hidden</text> } }>CLOSED</div>
     <div class="website"><a href="@ViewBag.resturant.url">Website</a></div>
